@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Number Checker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Scientific Number Checker</h1>
+        <input type="text" id="inputNumber" placeholder="Masukkan angka...">
+        <button onclick="checkNumber()">Cek</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function checkNumber() {
+            const input = document.getElementById('inputNumber').value;
+            const result = document.getElementById('result');
+            
+            const scientificRegex = /^-?\d+(\.\d+)?(e[-+]?\d+)?$/i;
+            
+            if (scientificRegex.test(input)) {
+                result.textContent = "Yes, it is a number";
+                result.style.color = "green";
+            } else {
+                result.textContent = "No, it is not a number";
+                result.style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>
